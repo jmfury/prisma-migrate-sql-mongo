@@ -3,7 +3,7 @@ MSSQL_SA_PASSWORD=YOUR_STRONG_PASSWORD
 .PHONY: all
 
 all: server setup prerestore restore
-# Build the plugin using a Docker container
+# Start DB server using a Docker container
 server:
 	docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}' \
 		--name 'sql1' -p 1433:1433 -h sql1 \
