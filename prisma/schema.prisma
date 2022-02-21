@@ -1,0 +1,13 @@
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model Inventory {
+  id       Int?
+  name     String? @db.NVarChar(50)
+  quantity Int?
+
+  @@ignore
+}
